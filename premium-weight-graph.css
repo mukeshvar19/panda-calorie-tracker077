@@ -1,0 +1,22 @@
+/* Premium Weight Graph */
+.premiumWeightGraph { position: relative; width: 100%; }
+.premiumWeightChart { position: relative; min-height: 260px; overflow: hidden; border-radius: 24px; background: linear-gradient(180deg, rgba(220,239,228,.72), rgba(255,255,255,.96)); }
+.premiumWeightChart svg { display: block; width: 100%; height: 260px; overflow: visible; }
+.weightGridLine { fill: none; stroke: rgba(35,122,82,.12); stroke-width: .45; vector-effect: non-scaling-stroke; }
+.weightArea { fill: url(#weightArea); stroke: none; }
+.weightLine { fill: none; stroke: #237a52; stroke-width: 2.8; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; animation: weightDraw 1.25s cubic-bezier(.22,.8,.2,1) forwards; }
+.weightLineGlow { fill: none; stroke: rgba(35,122,82,.16); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; filter: blur(3px); }
+.weightPointGroup { cursor: pointer; }
+.weightPointHalo { fill: rgba(35,122,82,.14); animation: pointPulse 2.2s ease-in-out infinite; }
+.weightPoint { fill: #237a52; stroke: white; stroke-width: .9; vector-effect: non-scaling-stroke; }
+.weightTooltip { position: absolute; transform: translate(-50%,-115%); padding: 9px 12px; border-radius: 12px; background: #17352a; color: white; box-shadow: 0 12px 28px rgba(23,53,42,.18); pointer-events: none; display: grid; gap: 2px; white-space: nowrap; z-index: 2; }
+.weightTooltip strong { font-size: 13px; }
+.weightTooltip span { font-size: 10px; opacity: .72; }
+.premiumWeightLabels { display: flex; justify-content: space-between; margin-top: 10px; color: #718177; font-size: 11px; }
+.premiumWeightEmpty { min-height: 220px; display: grid; place-items: center; border: 1px dashed rgba(35,122,82,.22); border-radius: 24px; color: #718177; background: #f7faf7; padding: 24px; text-align: center; }
+@keyframes weightDraw { to { stroke-dashoffset: 0; } }
+@keyframes pointPulse { 0%,100% { opacity: .45; transform: scale(.9); transform-origin: center; } 50% { opacity: 1; transform: scale(1.18); transform-origin: center; } }
+@media (prefers-reduced-motion: reduce) {
+  .weightLine { animation: none; stroke-dashoffset: 0; }
+  .weightPointHalo { animation: none; }
+}
